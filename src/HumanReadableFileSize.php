@@ -126,7 +126,7 @@ class HumanReadableFileSize
         $factor = floor((strlen((string)$bytes) - 1) / 3);
         $number = sprintf("%.{$decimals}f", $bytes / pow($this->getBytesPeyKilo(), $factor));
         if ($this->numberFormatter) {
-            $number = $this->numberFormatter->format($number);
+            $number = $this->numberFormatter->format((float)$number);
         }
         return $number.($this->spaceBeforeUnit ? ' ' : '').@$this->getUnits()[$factor];
     }
